@@ -41,7 +41,7 @@ public class AdminAuthorizationFilter implements Filter {
 		HttpServletResponse resp=(HttpServletResponse) response;
 		if(req.getServletPath().startsWith("/account"))
 		{
-			if("put".equalsIgnoreCase(req.getMethod()) || "delete".equalsIgnoreCase(req.getMethod()))
+			if("put".equalsIgnoreCase(req.getMethod()) || "delete".equalsIgnoreCase(req.getMethod())|| "post".equalsIgnoreCase(req.getMethod())
 			{
 				String auth=req.getHeader("Authorization");
 				UserAccountCredentials credentials= configuration.tokenDecode(auth);
