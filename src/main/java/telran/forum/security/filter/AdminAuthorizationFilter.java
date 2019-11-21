@@ -41,6 +41,7 @@ public class AdminAuthorizationFilter implements Filter {
 		HttpServletResponse resp=(HttpServletResponse) response;
 		if(req.getServletPath().startsWith("/account"))
 		{
+			
 			if("put".equalsIgnoreCase(req.getMethod()) || "delete".equalsIgnoreCase(req.getMethod())|| "post".equalsIgnoreCase(req.getMethod()))
 			{
 				String auth=req.getHeader("Authorization");
@@ -53,6 +54,7 @@ public class AdminAuthorizationFilter implements Filter {
 				else if(!account.getPassword().equals(credentials.getPassword())) {
 					resp.sendError(403,"Forbidden");
 				}
+				
 			}
 		}
   chain.doFilter(req, resp);
