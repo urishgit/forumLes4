@@ -50,9 +50,11 @@ public class AdminAuthorizationFilter implements Filter {
 				if(account==null)
 				{
 					resp.sendError(401,"Unauthorized");
+					return;
 				}
 				else if(!account.getPassword().equals(credentials.getPassword())) {
 					resp.sendError(403,"Forbidden");
+					return;
 				}
 				
 			}
